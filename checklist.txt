@@ -1,18 +1,16 @@
--Content
+-Website
   -Log in, secutiry level 1
-    -Review
-      -Habit input
-      -Gratefullness
-      -Today's lesson
     -Checklists
       -Tasks
-      -Habits
+      -Habit tracker input
+      -Gratefullness
+      -Today's lesson
       -Higiene checklist
     -Log in, secutiry level 2
-      -Monthly pictures
       -Goals
-        -Habit output
+        -Habit tracker output
       -Identity
+      -Monthly pictures
     -Settings
       -Darkmode
       -Log out
