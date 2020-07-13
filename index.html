@@ -1,6 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <style>
+      body {
+        background: whitesmoke;
+        font-family: "Roboto", sans-serif;
+        font-weight: 400;
+      }
+
+      h1, h2 {
+        text-align: center;
+      }
+      
+      #lists, #goals, #identity, #monthly-pictures, #settings {
+        display:none;
+      }
+      
+      #log-in-lvl:1 {
+        height: 100vw;
+        width: 100vh;
+        display: flex;
+        justify-content: center;
+      }
+      
+    </style>  
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <meta charset="UTF-8"/>
     <title>OSCEIN</title>
@@ -11,26 +34,44 @@
     <link rel="stylesheet" type="text/css" href="./style.css"/>
   </head>
   <body>
-    <section id="Lists">
+    <article id="log-in-lvl:1">
+      <button type="button" id="btn1">1</button> 
+      <button type="button" id="btn2">2</button> 
+      <button type="button" id="btn3">3</button> 
+      <br>
+      <button type="button" id="btn4">4</button> 
+      <button type="button" id="btn5">5</button> 
+      <button type="button" id="btn6">6</button> 
+      <br>
+      <button type="button" id="btn7">7</button> 
+      <button type="button" id="btn8">8</button> 
+      <button type="button" id="btn9">9</button> 
+      <br>
+      <button type="button" id="btn0">0</button> 
+    </article>  
+    <article id="lists">
       <h1>Lists</h1>
       <h2>Tasks</h2>
       <h2>Higiene checklist</h2>
       <h2>Habit tracker input</h2>
       <h3>Gratefullness</h3>
       <h3>Today's lesson</h3>
-    </section>  
-    <section id="goals">
+    </article>  
+    <article id="goals">
       <h1>Goals</h1>
       <h2>Habit tracker output</h2>
-    </section>      
-    <section id="identity">
+    </article>      
+    <article id="identity">
       <h1>Identity</h1>
-    </section>     
-    <section id="monthly-pictures">
+    </article>     
+    <article id="monthly-pictures">
       <h1>Monthly pictures</h1>
-    </section>
-    <section id="settings">
+    </article>
+    <article id="settings">
       <h1>Settings</h1>
-    </section>  
+    </article>  
+    <script>
+      
+    </script>
   </body>  
 </html>
