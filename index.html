@@ -16,7 +16,7 @@
         display: none;
       }
       
-      #log-in-lvl1 {
+      #log-in-1 {
         height: 250px;
         width: 200px;
         position: fixed;
@@ -28,25 +28,19 @@
         justify-content: center;
       }
       
-      #log-in-lvl1 span {
-        height: 10px;
-        width: 10px;
+      #dot-container {
+        display: flex;
+      }
+      
+      #log-in-1 span {
+        height: 8px;
+        width: 8px;
         border-radius: 50%;
-        margin: 5px;
-        margin-bottom: 15px;
         background: transparent;
         border: 1px solid mediumslateblue;
       }
       
-      #dot1 {
-        margin-left: 100px;
-      }
-      
-      #dot4 {
-        margin-right: 100px;
-      }
-      
-      #log-in-lvl1 button {
+      #log-in-1 button {
         height: 50px;
         width: 50px;
         margin: 5px;
@@ -63,14 +57,15 @@
     <meta name="keywords" content="OSCEIN, Oscar Einvall, personal, checklists, goals, identity, pictures"/>
     <meta name="author" content="Oscar Einvall">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="./style.css"/>
   </head>
   <body>
-    <article id="log-in-lvl1">
-      <span id="dot1"></span>
-      <span id="dot2"></span>
-      <span id="dot3"></span>
-      <span id="dot4"></span>
+    <article id="log-in-1">
+      <div id="dot-container">
+        <span id="dot1"></span>
+        <span id="dot2"></span>
+        <span id="dot3"></span>
+        <span id="dot4"></span>
+      </div>  
       <button type="button" id="btn1">1</button> 
       <button type="button" id="btn2">2</button> 
       <button type="button" id="btn3">3</button> 
