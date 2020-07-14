@@ -132,7 +132,7 @@
         document.getElementById("dot" + numOfDots).style.background = "mediumslateblue";
         document.getElementById("demo").innerHTML = passcode;
         
-        if (numOfDots == 4) {
+        if (numOfDots == 3) {
           if (passcode == "four six eight zero") {
             document.getElementById("log-in-1").style.display = "none";
             document.getElementById("lists").style.display = "initial";
@@ -141,7 +141,7 @@
             document.getElementById("monthly-pictures").style.display = "initial";
             document.getElementById("settings").style.display = "initial";
           } else {
-            numOfDots = 0;
+            numOfDots = -1;
             passcode = 0;
             document.getElementById("dot0").style.background = "transparent";
             document.getElementById("dot1").style.background = "transparent";
