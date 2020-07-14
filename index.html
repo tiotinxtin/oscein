@@ -86,21 +86,21 @@
     <article id="log-in-1">
       <p id="demo">Welcome, enter passcode</p>
       <div id="dot-container">
+        <span id="dot0"></span>
         <span id="dot1"></span>
         <span id="dot2"></span>
         <span id="dot3"></span>
-        <span id="dot4"></span>
       </div>  
-      <button type="button" id="btn1" ontouchstart="" onclick="fillDot('one')">1</button> 
-      <button type="button" id="btn2" ontouchstart="" onclick="fillDot('two')">2</button> 
-      <button type="button" id="btn3" ontouchstart="" onclick="fillDot('three')">3</button> 
-      <button type="button" id="btn4" ontouchstart="" onclick="fillDot('four')">4</button> 
-      <button type="button" id="btn5" ontouchstart="" onclick="fillDot('five')">5</button> 
-      <button type="button" id="btn6" ontouchstart="" onclick="fillDot('six')">6</button> 
-      <button type="button" id="btn7" ontouchstart="" onclick="fillDot('seven')">7</button> 
-      <button type="button" id="btn8" ontouchstart="" onclick="fillDot('eight')">8</button> 
-      <button type="button" id="btn9" ontouchstart="" onclick="fillDot('nine')">9</button> 
-      <button type="button" id="btn0" ontouchstart="" onclick="fillDot('zero')">0</button> 
+      <button type="button" id="btn1" ontouchstart="" onclick="fillDot(1)">1</button> 
+      <button type="button" id="btn2" ontouchstart="" onclick="fillDot(2)">2</button> 
+      <button type="button" id="btn3" ontouchstart="" onclick="fillDot(3)">3</button> 
+      <button type="button" id="btn4" ontouchstart="" onclick="fillDot(4)">4</button> 
+      <button type="button" id="btn5" ontouchstart="" onclick="fillDot(5)">5</button> 
+      <button type="button" id="btn6" ontouchstart="" onclick="fillDot(6">6</button> 
+      <button type="button" id="btn7" ontouchstart="" onclick="fillDot(7)">7</button> 
+      <button type="button" id="btn8" ontouchstart="" onclick="fillDot(8)">8</button> 
+      <button type="button" id="btn9" ontouchstart="" onclick="fillDot(9)">9</button> 
+      <button type="button" id="btn0" ontouchstart="" onclick="fillDot(0">0</button> 
     </article>  
     <article id="lists">
       <h1>Lists</h1>
@@ -124,12 +124,11 @@
       <h1>Settings</h1>
     </article>  
     <script>
-      var numOfDots = 0
-      var passcode = 0;
+      var numOfDots = -1
+      var passcode = [0, 0, 0, 0];
       function fillDot(num) {
         numOfDots ++;
-        num = toString(num)
-        passcode =+ num + "";
+        passcode[numOfDots] = num;
         document.getElementById("dot" + numOfDots).style.background = "mediumslateblue";
         document.getElementById("demo").innerHTML = passcode;
         
@@ -144,10 +143,10 @@
           } else {
             numOfDots = 0;
             passcode = 0;
+            document.getElementById("dot0").style.background = "transparent";
             document.getElementById("dot1").style.background = "transparent";
             document.getElementById("dot2").style.background = "transparent";
             document.getElementById("dot3").style.background = "transparent";
-            document.getElementById("dot4").style.background = "transparent";
           }
         }
       }
