@@ -86,21 +86,21 @@
     <article id="log-in-1">
       <p id="demo">Welcome, enter passcode</p>
       <div id="dot-container">
-        <span id="dot0"></span>
-        <span id="dot1"></span>
-        <span id="dot2"></span>
-        <span id="dot3"></span>
+        <span id="dot0" class="dot"></span>
+        <span id="dot1" class="dot"></span>
+        <span id="dot2" class="dot"></span>
+        <span id="dot3" class="dot"></span>
       </div>  
-      <button type="button" id="btn1" ontouchstart="" onclick="fillDot(1)">1</button> 
-      <button type="button" id="btn2" ontouchstart="" onclick="fillDot(2)">2</button> 
-      <button type="button" id="btn3" ontouchstart="" onclick="fillDot(3)">3</button> 
-      <button type="button" id="btn4" ontouchstart="" onclick="fillDot(4)">4</button> 
-      <button type="button" id="btn5" ontouchstart="" onclick="fillDot(5)">5</button> 
-      <button type="button" id="btn6" ontouchstart="" onclick="fillDot(6)">6</button> 
-      <button type="button" id="btn7" ontouchstart="" onclick="fillDot(7)">7</button> 
-      <button type="button" id="btn8" ontouchstart="" onclick="fillDot(8)">8</button> 
-      <button type="button" id="btn9" ontouchstart="" onclick="fillDot(9)">9</button> 
-      <button type="button" id="btn0" ontouchstart="" onclick="fillDot(0)">0</button> 
+      <button type="button" id="btn1" class="btn" ontouchstart="" onclick="fillDot(1)">1</button> 
+      <button type="button" id="btn2" class="btn" ontouchstart="" onclick="fillDot(2)">2</button> 
+      <button type="button" id="btn3" class="btn" ontouchstart="" onclick="fillDot(3)">3</button> 
+      <button type="button" id="btn4" class="btn" ontouchstart="" onclick="fillDot(4)">4</button> 
+      <button type="button" id="btn5" class="btn" ontouchstart="" onclick="fillDot(5)">5</button> 
+      <button type="button" id="btn6" class="btn" ontouchstart="" onclick="fillDot(6)">6</button> 
+      <button type="button" id="btn7" class="btn" ontouchstart="" onclick="fillDot(7)">7</button> 
+      <button type="button" id="btn8" class="btn" ontouchstart="" onclick="fillDot(8)">8</button> 
+      <button type="button" id="btn9" class="btn" ontouchstart="" onclick="fillDot(9)">9</button> 
+      <button type="button" id="btn0" class="btn" ontouchstart="" onclick="fillDot(0)">0</button> 
     </article>  
     <article id="lists">
       <h1>Lists</h1>
@@ -126,29 +126,59 @@
     <script>
       var numOfDots = -1
       var passcode = [0, 0, 0, 0];
+      var cooldown = false;
       function fillDot(num) {
-        numOfDots ++;
-        passcode[numOfDots] = num;
-        document.getElementById("dot" + numOfDots).style.background = "mediumslateblue";
-        document.getElementById("demo").innerHTML = passcode;
-        if (numOfDots == 3) {
-          if (passcode[0] == 4) & passcode[1] == 6 & passcode[2] == 8 & passcode[3] == 0) {
-            document.getElementById("log-in-1").style.display = "none";
-            document.getElementById("lists").style.display = "initial";
-            document.getElementById("goals").style.display = "initial";
-            document.getElementById("identity").style.display = "initial";
-            document.getElementById("monthly-pictures").style.display = "initial";
-            document.getElementById("settings").style.display = "initial";
-          } else {
-            numOfDots = -1;
-            passcode = [0, 0, 0, 0];
-            document.getElementById("dot0").style.background = "transparent";
-            document.getElementById("dot1").style.background = "transparent";
-            document.getElementById("dot2").style.background = "transparent";
-            document.getElementById("dot3").style.background = "transparent";
+        if (cooldown == false) {
+          numOfDots ++;
+          passcode[numOfDots] = num;
+          document.getElementById("dot" + numOfDots).style.background = "mediumslateblue";
+          if (numOfDots == 3) {
+            if (passcode[0] == 4 & passcode[1] == 6 & passcode[2] == 8 & passcode[3] == 0) {
+              document.getElementById("dot0").style.background = "lime";
+              document.getElementById("dot1").style.background = "lime";
+              document.getElementById("dot2").style.background = "lime";
+              document.getElementById("dot3").style.background = "lime";
+              document.getElementById("dot0").style.borderColor = "lime";
+              document.getElementById("dot1").style.borderColor = "lime";
+              document.getElementById("dot2").style.borderColor = "lime";
+              document.getElementById("dot3").style.borderColor = "lime";
+              setTimeout(loggingin1, 100);
+              function loggingin1() {
+                document.getElementById("log-in-1").style.display = "none";
+                document.getElementById("lists").style.display = "initial";
+                document.getElementById("goals").style.display = "initial";
+                document.getElementById("identity").style.display = "initial";
+                document.getElementById("monthly-pictures").style.display = "initial";
+                document.getElementById("settings").style.display = "initial";
+              }  
+            } else {
+              numOfDots = -1;
+              passcode = [0, 0, 0, 0];
+              document.getElementById("dot0").style.background = "red";
+              document.getElementById("dot1").style.background = "red";
+              document.getElementById("dot2").style.background = "red";
+              document.getElementById("dot3").style.background = "red";
+              document.getElementById("dot0").style.borderColor = "red";
+              document.getElementById("dot1").style.borderColor = "red";
+              document.getElementById("dot2").style.borderColor = "red";
+              document.getElementById("dot3").style.borderColor = "red";
+              cooldown = true;
+              setTimeout(resetDots, 400);
+              function resetDots() {
+                document.getElementById("dot0").style.borderColor = "mediumslateblue";
+                document.getElementById("dot1").style.borderColor = "mediumslateblue";
+                document.getElementById("dot2").style.borderColor = "mediumslateblue";
+                document.getElementById("dot3").style.borderColor = "mediumslateblue";
+                document.getElementById("dot0").style.background = "transparent";
+                document.getElementById("dot1").style.background = "transparent";
+                document.getElementById("dot2").style.background = "transparent";
+                document.getElementById("dot3").style.background = "transparent";
+                cooldown = false;
+              }  
+            }
           }
-        }
-      }
+        } else {}
+      }  
     </script>
   </body>  
 </html>
