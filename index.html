@@ -133,7 +133,7 @@
         document.getElementById("demo").innerHTML = passcode;
         
         if (numOfDots == 3) {
-          if (passcode == "four six eight zero") {
+          if (passcode[0] == 4) & passcode[1] == 6 & passcode[2] == 8 & passcode[3] == 0{
             document.getElementById("log-in-1").style.display = "none";
             document.getElementById("lists").style.display = "initial";
             document.getElementById("goals").style.display = "initial";
@@ -142,7 +142,7 @@
             document.getElementById("settings").style.display = "initial";
           } else {
             numOfDots = -1;
-            passcode = 0;
+            passcode = [0, 0, 0, 0];
             document.getElementById("dot0").style.background = "transparent";
             document.getElementById("dot1").style.background = "transparent";
             document.getElementById("dot2").style.background = "transparent";
