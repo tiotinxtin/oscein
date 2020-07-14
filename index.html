@@ -133,10 +133,10 @@
         passcode =+ numStr;
         document.getElementById("dot" + numOfDots).style.background = "mediumslateblue";
       }
-      while (srchPasscode == 1) {
+      while (srchPasscode == true) {
         if (numOfDots == 4) {
           if (passcode == 4680) {
-            srchPasscode = 0;
+            srchPasscode = false;
             document.getElementById("log-in-1").style.display = "none";
             document.getElementById("lists").style.display = "initial";
             document.getElementById("goals").style.display = "initial";
