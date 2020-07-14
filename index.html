@@ -126,17 +126,17 @@
     <script>
       var numOfDots = 0
       var passcode;
-      var srchPasscode = true;
+      var srchPasscode = 1;
       function fillDot(num) {
         numOfDots ++;
         var numStr = toString(num);
         passcode =+ numStr;
         document.getElementById("dot" + numOfDots).style.background = "mediumslateblue";
       }
-      /*while (srchPasscode == true) {
+      while (srchPasscode == 1) {
         if (numOfDots == 4) {
           if (passcode == 4680) {
-            srchPasscode == false;
+            srchPasscode = 0;
             document.getElementById("log-in-1").style.display = "none";
             document.getElementById("lists").style.display = "initial";
             document.getElementById("goals").style.display = "initial";
@@ -149,7 +149,7 @@
             document.getElementById("dot1", "dot2", "dot3", "dot4").style.background = "transparent";
           }
         }
-      }*/
+      }
     </script>
   </body>  
 </html>
