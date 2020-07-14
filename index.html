@@ -128,6 +128,7 @@
       var passcode = 0;
       function fillDot(num) {
         numOfDots ++;
+        num = num = toString(num)
         passcode =+ num + "";
         document.getElementById("dot" + numOfDots).style.background = "mediumslateblue";
         document.getElementById("demo").innerHTML = passcode;
