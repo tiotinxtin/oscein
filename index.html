@@ -84,7 +84,7 @@
   </head>
   <body>
     <article id="log-in-1">
-      <p>Welcome, enter passcode</p>
+      <p id="demo">Welcome, enter passcode</p>
       <div id="dot-container">
         <span id="dot1"></span>
         <span id="dot2"></span>
@@ -130,6 +130,8 @@
         numOfDots ++;
         passcode =+ num;
         document.getElementById("dot" + numOfDots).style.background = "mediumslateblue";
+        document.getElementById(demo).innerHTML = password;
+        
         if (numOfDots == 4) {
           if (passcode == 4680) {
             document.getElementById("log-in-1").style.display = "none";
