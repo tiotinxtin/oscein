@@ -202,9 +202,9 @@ style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-w
               document.getElementById("identity").style.display = "initial";
               document.getElementById("monthly-photos").style.display = "initial";
               document.getElementById("settings").style.display = "initial";
-              setTimeout(reload, 10000);
+              setTimeout(autoLogout, 40000);
               function autoLogout() {
-                reload
+                reload();
               }
             } else {
               numOfDots = -1;
