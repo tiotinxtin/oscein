@@ -203,7 +203,11 @@
             } else {
               numOfDots = -1;
               passcode = [0, 0, 0, 0];
-              document.getElementsByClassName("dot").style.background = "red";
+              var dot = document.getElementsByClassName("dot");
+              var i = 0;
+              for (i < dot.length i++) {
+                dot[i].style.background = "red";
+              }
               cooldown = true;
               setTimeout(resetDots, 400);
               function resetDots() {
