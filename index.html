@@ -185,7 +185,6 @@
       var numOfDots = -1
       var passcode = [0, 0, 0, 0];
       var cooldown = false;
-      var dots = document.getElementById("dot0"); document.getElementById("dot1"); document.getElementById("dot2"); document.getElementById("dot3");
       function fillDot(num) {
         if (cooldown == false) {
           numOfDots ++;
@@ -204,7 +203,10 @@
             } else {
               numOfDots = -1;
               passcode = [0, 0, 0, 0];
-              dots.style.background = "red";
+              document.getElementById("dot0").style.background = "red";
+              document.getElementById("dot1").style.background = "red";
+              document.getElementById("dot2").style.background = "red";
+              document.getElementById("dot3").style.background = "red";
               cooldown = true;
               setTimeout(resetDots, 400);
               function resetDots() {
