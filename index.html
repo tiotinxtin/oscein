@@ -88,7 +88,8 @@
         width: 80px;
         margin: 0px;
         border: none;
-        color: white;
+        color: rgb(235, 235, 235);
+        background: mediumslateblue;
       }
       
       #nav-settings {
@@ -101,10 +102,11 @@
         box-shadow: ;
         height: 100px;
         width: 80px;
+        box-shadow: 45px 0px 0px 0px mediumslateblue;
       }
       
       #nav button:hover {
-        color: white !important;
+        color: black !important;
       }
       
       #nav svg {
@@ -114,11 +116,11 @@
       }
       
       .color-svg {
-        fill: white;
+        fill: rgb(235, 235, 235);
       }
       
       #nav button:hover .color-svg {
-        fill: white !important;
+        fill: black !important;
       }
             
       #nav, #lists, #goals, #identity, #photos, #settings {
@@ -189,9 +191,9 @@
       var passcode = [0, 0, 0, 0];
       var cooldown = false;
       var themeColor = "mediumslateblue";
-      var svgColor = "dimgray";
+      var svgColor = "rgb(235, 235, 235)";
       var svgColorHover = "black";
-      var navColor = "rgb(140,121,255)";
+      var navColor = "mediumslateblue";
       function fillDot(num) {
         if (cooldown == false) {
           numOfDots ++;
@@ -201,11 +203,7 @@
             if (passcode[0] == 4 & passcode[1] == 6 & passcode[2] == 8 & passcode[3] == 0) {
               document.getElementById("log-in-1").style.display = "none";
               document.getElementById("nav").style.display = "initial";
-              document.getElementById("lists").style.display = "initial";
-              document.getElementById("goals").style.display = "initial";
-              document.getElementById("identity").style.display = "initial";
-              document.getElementById("monthly-photos").style.display = "initial";
-              document.getElementById("settings").style.display = "initial";
+              listsBtn();
               setTimeout("location.reload();", 600000);
             } else {
               numOfDots = -1;
@@ -234,13 +232,7 @@
             }
           }
         } else {}
-      }  
-      document.getElementById("nav-lists").style.background = navColor;
-      document.getElementById("nav-goals").style.background = navColor;
-      document.getElementById("nav-identity").style.background = navColor;
-      document.getElementById("nav-photos").style.background = navColor;
-      document.getElementById("nav-settings").style.background = navColor;
-      document.getElementById("nav-extra").style.boxShadow = "45px 0px 0px 0px" + " " + navColor;
+      }
       function resetNav() {
         document.getElementById("color-svg-lists").style.fill = svgColor;
         document.getElementById("color-svg-goals").style.fill = svgColor;
