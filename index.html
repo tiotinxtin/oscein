@@ -137,7 +137,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;500;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;500;700&display=swap" rel="stylesheet">
   </head>
-  <body>
+  <body id="body">
     <article id="log-in-1">
       <p id="demo">Welcome, enter passcode</p>
       <div id="dot-container">
@@ -186,6 +186,7 @@
     <article id="settings">
       <h1>Settings</h1>
       <button type="button" onclick="location.reload()">Log out</button>
+      <input type="color" id="backgroundColor"/>
     </article>  
     <script>
       var numOfDots = -1
@@ -195,11 +196,14 @@
       var svgColor = "rgb(235, 235, 235)";
       var svgColorHover = "black";
       var navColor = "mediumslateblue";
+      function id(x) {
+        return document.getElementById(x);
+      }
       function fillDot(num) {
         if (cooldown == false) {
           numOfDots ++;
           passcode[numOfDots] = num;
-          document.getElementById("dot" + numOfDots).style.background = "mediumslateblue";
+          id("dot" + numOfDots).style.background = "mediumslateblue";
           if (numOfDots == 3) {
             if (passcode[0] == 4 & passcode[1] == 6 & passcode[2] == 8 & passcode[3] == 0) {
               document.getElementById("log-in-1").style.display = "none";
@@ -209,25 +213,25 @@
             } else {
               numOfDots = -1;
               passcode = [0, 0, 0, 0];
-              document.getElementById("dot0").style.background = "red";
-              document.getElementById("dot1").style.background = "red";
-              document.getElementById("dot2").style.background = "red";
-              document.getElementById("dot3").style.background = "red";
-              document.getElementById("dot0").style.borderColor = "red";
-              document.getElementById("dot1").style.borderColor = "red";
-              document.getElementById("dot2").style.borderColor = "red";
-              document.getElementById("dot3").style.borderColor = "red";
+              id("dot0").style.background = "red";
+              id("dot1").style.background = "red";
+              id("dot2").style.background = "red";
+              id("dot3").style.background = "red";
+              id("dot0").style.borderColor = "red";
+              id("dot1").style.borderColor = "red";
+              id("dot2").style.borderColor = "red";
+              id("dot3").style.borderColor = "red";
               cooldown = true;
               setTimeout(resetDots, 400);
               function resetDots() {
-                document.getElementById("dot0").style.borderColor = "mediumslateblue";
-                document.getElementById("dot1").style.borderColor = "mediumslateblue";
-                document.getElementById("dot2").style.borderColor = "mediumslateblue";
-                document.getElementById("dot3").style.borderColor = "mediumslateblue";
-                document.getElementById("dot0").style.background = "transparent";
-                document.getElementById("dot1").style.background = "transparent";
-                document.getElementById("dot2").style.background = "transparent";
-                document.getElementById("dot3").style.background = "transparent";
+                id("dot0").style.borderColor = "mediumslateblue";
+                id("dot1").style.borderColor = "mediumslateblue";
+                id("dot2").style.borderColor = "mediumslateblue";
+                id("dot3").style.borderColor = "mediumslateblue";
+                id("dot0").style.background = "transparent";
+                id("dot1").style.background = "transparent";
+                id("dot2").style.background = "transparent";
+                id("dot3").style.background = "transparent";
                 cooldown = false;
               }  
             }
