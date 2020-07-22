@@ -186,7 +186,7 @@
     <article id="settings">
       <h1>Settings</h1>
       <button type="button" onclick="location.reload()">Log out</button>
-      <input type="color" id="backgroundColor"/>
+      <input type="color" id="new-nav-color"/>
     </article>  
     <script>
       var numOfDots = -1
@@ -195,7 +195,8 @@
       var themeColor = "mediumslateblue";
       var svgColor = "rgb(235, 235, 235)";
       var svgColorHover = "black";
-      var navColor = "mediumslateblue";
+      var navColor = "#7B68EE";
+      var newNavColor;
       function id(x) {
         return document.getElementById(x);
       }
@@ -342,6 +343,14 @@
         document.getElementById("nav-settings").style.boxShadow = "45px 0px 0px 0px" + " " + navColor;
         document.getElementById("nav-photos").style.borderRadius = "0px 0px 0px 60%";
         document.getElementById("nav-extra").style.boxShadow = "none";
+      }
+      newNavColor = id("new-nav-color");
+      newNavColor.value = navColor;
+      newNavColor.addEventListener("input", updateFirst);
+      function updateFirst(event) {
+        document.querySelectorAll("#nav button").forEach(function(p) {
+          p.style.backgroundColor = event.target.value;
+        });
       }
     </script>
   </body>  
