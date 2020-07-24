@@ -186,17 +186,14 @@
     <article id="settings">
       <h1>Settings</h1>
       <button type="button" onclick="location.reload()">Log out</button>
-      <input type="color" id="new-nav-color"/>
+      <input type="color" id="new-accent-color" value="#7B68EE"/>
     </article>  
     <script>
       var numOfDots = -1
       var passcode = [0, 0, 0, 0];
       var cooldown = false;
-      var themeColor = "mediumslateblue";
-      var svgColor = "rgb(235, 235, 235)";
-      var svgColorHover = "black";
-      var navColor = "#7B68EE";
-      var newNavColor;
+      var accentColor = "rgb(123,104,238)";
+      var backgroundColor = "rgb(252, 252, 252)"
       function id(x) {
         return document.getElementById(x);
       }
@@ -240,16 +237,16 @@
         } else {}
       }
       function resetNav() {
-        document.getElementById("color-svg-lists").style.fill = svgColor;
-        document.getElementById("color-svg-goals").style.fill = svgColor;
-        document.getElementById("color-svg-identity").style.fill = svgColor;
-        document.getElementById("color-svg-photos").style.fill = svgColor;
-        document.getElementById("color-svg-settings").style.fill = svgColor;
-        document.getElementById("nav-lists").style.color = svgColor;
-        document.getElementById("nav-goals").style.color = svgColor;
-        document.getElementById("nav-identity").style.color = svgColor;
-        document.getElementById("nav-photos").style.color = svgColor;
-        document.getElementById("nav-settings").style.color = svgColor;
+        document.getElementById("color-svg-lists").style.fill = backgroundColor;
+        document.getElementById("color-svg-goals").style.fill = backgroundColor;
+        document.getElementById("color-svg-identity").style.fill = backgroundColor;
+        document.getElementById("color-svg-photos").style.fill = backgroundColor;
+        document.getElementById("color-svg-settings").style.fill = backgroundColor;
+        document.getElementById("nav-lists").style.color = backgroundColor;
+        document.getElementById("nav-goals").style.color = backgroundColor;
+        document.getElementById("nav-identity").style.color = backgroundColor;
+        document.getElementById("nav-photos").style.color = backgroundColor;
+        document.getElementById("nav-settings").style.color = backgroundColor;
         document.getElementById("lists").style.display = "none";
         document.getElementById("goals").style.display = "none";
         document.getElementById("identity").style.display = "none";
@@ -257,24 +254,24 @@
         document.getElementById("settings").style.display = "none";
         
         document.getElementById("nav-lists").style.borderRadius = "0px";
-        document.getElementById("nav-lists").style.background = navColor;
+        document.getElementById("nav-lists").style.background = accentColor;
         document.getElementById("nav-lists").style.boxShadow = "none";
         document.getElementById("nav-goals").style.borderRadius = "0px";
         
         document.getElementById("nav-goals").style.borderRadius = "0px";
-        document.getElementById("nav-goals").style.background = navColor;
+        document.getElementById("nav-goals").style.background = accentColor;
         document.getElementById("nav-goals").style.boxShadow = "none";
         document.getElementById("nav-lists").style.borderRadius = "0px";
         document.getElementById("nav-identity").style.borderRadius = "0px";
         
         document.getElementById("nav-identity").style.borderRadius = "0px";
-        document.getElementById("nav-identity").style.background = navColor;
+        document.getElementById("nav-identity").style.background = accentColor;
         document.getElementById("nav-identity").style.boxShadow = "none";
         document.getElementById("nav-goals").style.borderRadius = "0px";
         document.getElementById("nav-photos").style.borderRadius = "0px";
         
         document.getElementById("nav-photos").style.borderRadius = "0px";
-        document.getElementById("nav-photos").style.background = navColor;
+        document.getElementById("nav-photos").style.background = accentColor;
         document.getElementById("nav-photos").style.boxShadow = "none";
         document.getElementById("nav-identity").style.borderRadius = "0px";
         document.getElementById("nav-settings").style.borderRadius = "0px";
@@ -283,74 +280,71 @@
         document.getElementById("nav-settings").style.background = navColor;
         document.getElementById("nav-settings").style.boxShadow = "none";
         document.getElementById("nav-photos").style.borderRadius = "0px";
-        document.getElementById("nav-extra").style.boxShadow = "45px 0px 0px 0px" + " " + navColor;
+        document.getElementById("nav-extra").style.boxShadow = "45px 0px 0px 0px " + accentColor;
       }
       function listsBtn() {
         resetNav();
-        document.getElementById("color-svg-lists").style.fill = themeColor;
-        document.getElementById("nav-lists").style.color = themeColor;
+        document.getElementById("color-svg-lists").style.fill = accentColor;
+        document.getElementById("nav-lists").style.color = accentColor;
         document.getElementById("lists").style.display = "initial";
         document.getElementById("nav-lists").style.border = "none";
         document.getElementById("nav-lists").style.borderRadius = "0px 0px 52% 0px";
         document.getElementById("nav-lists").style.background = "transparent";
-        document.getElementById("nav-lists").style.boxShadow = "45px 0px 0px 0px" + " " + navColor;
+        document.getElementById("nav-lists").style.boxShadow = "45px 0px 0px 0px " + accentColor;
         document.getElementById("nav-goals").style.borderRadius = "60% 0px 0px 0px";
       }
       function goalsBtn() {
         resetNav()
-        document.getElementById("color-svg-goals").style.fill = themeColor;
-        document.getElementById("nav-goals").style.color = themeColor;
+        document.getElementById("color-svg-goals").style.fill = accentColor;
+        document.getElementById("nav-goals").style.color = accentColor;
         document.getElementById("goals").style.display = "initial";
         document.getElementById("nav-goals").style.border = "none";
         document.getElementById("nav-goals").style.borderRadius = "0px 60% 60% 0px";
         document.getElementById("nav-goals").style.background = "transparent";
-        document.getElementById("nav-goals").style.boxShadow = "45px 0px 0px 0px" + " " + navColor;
+        document.getElementById("nav-goals").style.boxShadow = "45px 0px 0px 0px " + accentColor;
         document.getElementById("nav-lists").style.borderRadius = "0px 0px 0px 60%";
         document.getElementById("nav-identity").style.borderRadius = "60% 0px 0px 0px";
       }
       function identityBtn() {
         resetNav();
-        document.getElementById("color-svg-identity").style.fill = themeColor;
-        document.getElementById("nav-identity").style.color = themeColor;
+        document.getElementById("color-svg-identity").style.fill = accentColor;
+        document.getElementById("nav-identity").style.color = accentColor;
         document.getElementById("identity").style.display = "initial";
         document.getElementById("nav-identity").style.border = "none";
         document.getElementById("nav-identity").style.borderRadius = "0px 60% 60% 0px";
         document.getElementById("nav-identity").style.background = "transparent";
-        document.getElementById("nav-identity").style.boxShadow = "45px 0px 0px 0px" + " " + navColor;
+        document.getElementById("nav-identity").style.boxShadow = "45px 0px 0px 0px " + accentColor;
         document.getElementById("nav-goals").style.borderRadius = "0px 0px 0px 60%";
         document.getElementById("nav-photos").style.borderRadius = "60% 0px 0px 0px";
       }
       function photosBtn() {
         resetNav();
-        document.getElementById("color-svg-photos").style.fill = themeColor;
-        document.getElementById("nav-photos").style.color = themeColor;
+        document.getElementById("color-svg-photos").style.fill = accentColor;
+        document.getElementById("nav-photos").style.color = accentColor;
         document.getElementById("photos").style.display = "initial";
         document.getElementById("nav-photos").style.border = "none";
         document.getElementById("nav-photos").style.borderRadius = "0px 60% 60% 0px";
         document.getElementById("nav-photos").style.background = "transparent";
-        document.getElementById("nav-photos").style.boxShadow = "45px 0px 0px 0px" + " " + navColor;
+        document.getElementById("nav-photos").style.boxShadow = "45px 0px 0px 0px " + accentColor;
         document.getElementById("nav-identity").style.borderRadius = "0px 0px 0px 60%";
         document.getElementById("nav-settings").style.borderRadius = "60% 0px 0px 60%";
       }
       function settingsBtn() {
         resetNav();
-        document.getElementById("color-svg-settings").style.fill = themeColor;
-        document.getElementById("nav-settings").style.color = themeColor;
+        document.getElementById("color-svg-settings").style.fill = accentColor;
+        document.getElementById("nav-settings").style.color = accentColor;
         document.getElementById("settings").style.display = "initial";
         document.getElementById("nav-settings").style.border = "none";
         document.getElementById("nav-settings").style.borderRadius = "0px 52% 0px 0px";
         document.getElementById("nav-settings").style.background = "transparent";
-        document.getElementById("nav-settings").style.boxShadow = "45px 0px 0px 0px" + " " + navColor;
+        document.getElementById("nav-settings").style.boxShadow = "45px 0px 0px 0px " + accentColor;
         document.getElementById("nav-photos").style.borderRadius = "0px 0px 0px 60%";
         document.getElementById("nav-extra").style.boxShadow = "none";
       }
-      newNavColor = id("new-nav-color");
-      newNavColor.value = navColor;
-      newNavColor.addEventListener("input", updateFirst);
-      function updateFirst(event) {
-        document.querySelectorAll("#nav button").forEach(function(p) {
-          p.style.backgroundColor = event.target.value;
-        });
+      id("new-accent-color").addEventListener("input", updateAccent);
+      function updateAccent(event) {
+        accentColor = event.target.value;
+        listsBtn();
       }
     </script>
   </body>  
