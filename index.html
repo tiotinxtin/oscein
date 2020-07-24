@@ -2,23 +2,25 @@
 <html lang="en">
   <head>
     <style>
+      :root {
+        --container-background: white;
+        --container-box-shadow: 0px 0px 15px 3px lightgray;
+        --container-border-radius: 10px;
+      }
       *:focus {
         outline: none;
         webkit-appearance: none;
         box-sizing: border-box; 
       }
-      
       body {
         background: rgb(252, 252, 252);
         font-family: "Roboto", sans-serif;
         font-weight: 500;
         margin-right: 90px;
       }
-
       h1, h2 {
         text-align: center;
       }
-      
       #log-in-1 {
         height: 400px;
         width: 300px;
@@ -30,14 +32,12 @@
         flex-wrap: wrap;
         justify-content: center;
       }
-      
       #dot-container {
         display: flex;
         justify-content: center;
         align-items: center;
         margin: 20px 100px;
       }
-      
       #log-in-1 span {
         height: 9px;
         width: 9px;
@@ -46,7 +46,6 @@
         background: transparent;
         border: 1px solid mediumslateblue;
       }
-      
       #log-in-1 button {
         font-weight: 300; 
         font-size: 1.5em;
@@ -58,16 +57,13 @@
         background: transparent;
         border: 1px solid mediumslateblue;
       }
-      
       #log-in-1 button:focus {
         border: 2px solid mediumslateblue;
       }
-      
       #log-in-1 button:active {
         background: mediumslateblue;
         color: white;
       }
-      
       #nav {
         background: transparent;
         position: fixed;
@@ -81,7 +77,6 @@
         justify-content: center;
         align-content: space-around;
       }
-      
       #nav button {
         text-align: center;
         height: 90px;
@@ -91,11 +86,9 @@
         color: rgb(235, 235, 235);
         background: mediumslateblue;
       }
-      
       #nav-settings {
         border-radius: 0px 0px 0px 50%;
       }
-      
       #nav-extra {
         background: transparent;
         border-radius: 0px 50% 0px 0px;
@@ -104,25 +97,51 @@
         width: 80px;
         box-shadow: 45px 0px 0px 0px mediumslateblue;
       }
-      
-      #nav button:hover {
-        color: black !important;
-      }
-      
       #nav svg {
         height: 40px;
         width: 40px;
         margin: 3px;
       }
-      
       .color-svg {
         fill: rgb(235, 235, 235);
       }
-      
-      #nav button:hover .color-svg {
-        fill: black !important;
+      .settings-container {
+        height: 60px;
+        width: 90%;
+        margin: auto;
+        margin-bottom: 20px;
+        background: var(--container-background);
+        box-shadow: var(--container-box-shadow);
+        border-radius: var(--container-border-radius);
+        padding: 0px 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
       }
-            
+      #new-accent-color{
+        border: none;
+        height: 40px;
+        width: 40px;
+        float: right;
+      }
+      #log-out {
+        height: 40px;
+        width: 150px;
+        color: red;
+        border: 2px solid red;
+        background: transparent;
+        border-radius: 20px;
+        font-sixe: 1em;
+        position: absolute;
+        bottom: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      #log-out:hover {
+        border: none;
+        background: red;
+        color: white;
+      }
       #nav, #lists, #goals, #identity, #photos, #settings {
         display: none;
       }
@@ -139,7 +158,7 @@
   </head>
   <body id="body">
     <article id="log-in-1">
-      <p id="demo">Welcome, enter passcode</p>
+      <p>Welcome, enter passcode</p>
       <div id="dot-container">
         <span id="dot0" class="dot"></span>
         <span id="dot1" class="dot"></span>
@@ -185,8 +204,14 @@
     </article>
     <article id="settings">
       <h1>Settings</h1>
-      <button type="button" onclick="location.reload()">Log out</button>
-      <input type="color" id="new-accent-color" value="#7B68EE"/>
+      <div class="settings-container">
+        <label for="new-accent-color">Change accent color:</label>
+        <input type="color" id="new-accent-color" value="#7B68EE"/>
+      </div>  
+      <div class="settings-container">
+        
+      </div>  
+      <button type="button" onclick="location.reload()" id="log-out">Log out</button>
     </article>  
     <script>
       var numOfDots = -1
