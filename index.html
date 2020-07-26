@@ -3,9 +3,7 @@
   <head>
     <style>
       :root {
-        --container-background: white;
-        --container-box-shadow: 0px 0px 15px 3px lightgray;
-        --container-border-radius: 10px;
+        --accent_color: mediumslateblue;
       }
       *:focus {
         outline: none;
@@ -57,9 +55,6 @@
         background: transparent;
         border: 1px solid mediumslateblue;
       }
-      #log-in-1 button:focus {
-        border: 2px solid mediumslateblue;
-      }
       #log-in-1 button:active {
         background: mediumslateblue;
         color: white;
@@ -105,30 +100,66 @@
       .color-svg {
         fill: rgb(235, 235, 235);
       }
+      /*.container {
+        background: white;
+        box-shadow: 0px 0px 15px 3px lightgray;
+        border-radius: 10px;
+      }*/
       .settings-container {
         height: 60px;
         width: 90%;
         margin: auto;
-        margin-bottom: 20px;
-        background: var(--container-background);
-        box-shadow: var(--container-box-shadow);
-        border-radius: var(--container-border-radius);
-        padding: 0px 10px;
         display: flex;
         align-items: center;
         justify-content: space-between;
       }
       #new-accent-color{
         border: none;
-        height: 40px;
-        width: 40px;
-        float: right;
+        height: 35px;
+        width: 35px;
+      }      
+      #dark-mode-switch {
+        position: relative;
+        width: 60px;
+        height: 34px;
+      }
+      #dark-mode { 
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+      #dark-mode-slider {
+        border-radius: 34px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: silver;
+        transition: .07s;
+      }
+      #dark-mode-slider:before {
+        border-radius: 50%;
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        transition: .07s;
+      }
+      #dark-mode:checked + span {
+        background-color: var(--accent_color);
+      }
+      #dark-mode:checked + span:before {
+        transform: translateX(26px);
       }
       #log-out {
         height: 40px;
         width: 150px;
         color: red;
-        border: 2px solid red;
+        border: 1px solid red;
         background: transparent;
         border-radius: 20px;
         font-sixe: 1em;
@@ -205,12 +236,16 @@
     <article id="settings">
       <h1>Settings</h1>
       <div class="settings-container">
-        <label for="new-accent-color">Change accent color:</label>
+        <label for="new-accent-color">Change accent color</label>
         <input type="color" id="new-accent-color" value="#7B68EE"/>
       </div>  
       <div class="settings-container">
-        
-      </div>  
+        <label for="dark-mode">Toggle dark mode</label>
+        <label id="dark-mode-switch">
+          <input type="checkbox" id="dark-mode" onclick="toggleDarkMode();"/>
+          <span id="dark-mode-slider"></span>
+        </label>
+      </div>
       <button type="button" onclick="location.reload()" id="log-out">Log out</button>
     </article>  
     <script>
@@ -221,6 +256,12 @@
       var backgroundColor = "rgb(252, 252, 252)";
       function id(x) {
         return document.getElementById(x);
+      }
+      function sp(x, y) {
+        return document.documentElement.style.setProperty(x, y);
+      }
+      function qs(x) {
+        return document.querySelector(x);
       }
       function fillDot(num) {
         if (cooldown == false) {
@@ -361,10 +402,29 @@
         document.getElementById("nav-photos").style.borderRadius = "0px 0px 0px 60%";
         document.getElementById("nav-extra").style.boxShadow = "none";
       }
-      id("new-accent-color").addEventListener("input", updateAccent);
-      function updateAccent(event) {
+      id("new-accent-color").oninput = function(event) {
         accentColor = event.target.value;
+        sp("--accent_color", event.target.value);
         settingsBtn();
+      }
+      function toggleDarkMode() {
+        switch (id("dark-mode").checked) {
+          case true:
+            backgroundColor = "black";
+            id("body").style.background = backgroundColor; 
+            id("body").style.color = "white";
+            id("log-out").onmouseover = function() {this.style.color = "black"}
+            id("log-out").onmouseleave = function() {this.style.color = "red"}
+            settingsBtn();
+            break;
+          default: 
+            backgroundColor = "rgb(252, 252, 252)";
+            id("body").style.backgroundColor = backgroundColor;
+            id("body").style.color = "black";
+            id("log-out").onmouseover = function() {this.style.color = "white"}
+            id("log-out").onmouseleave = function() {this.style.color = "red"}
+            settingsBtn();
+        }
       }
     </script>
   </body>  
