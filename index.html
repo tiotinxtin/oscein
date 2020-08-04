@@ -3,17 +3,17 @@
   <head>
     <style>
       :root {
-        --accent_color: mediumslateblue;
+        --accentColor: mediumslateblue;
+        --font: sans-serif;
       }
       *:focus {
         outline: none;
-        webkit-appearance: none;
         box-sizing: border-box; 
       }
       body {
         background: rgb(252, 252, 252);
-        font-family: "Roboto", sans-serif;
-        font-weight: 500;
+        font-family: var(--font);
+        font-weight: normal;
         margin-right: 90px;
       }
       h1, h2 {
@@ -30,6 +30,9 @@
         flex-wrap: wrap;
         justify-content: center;
       }
+      #log-in-p {
+        font-weight: bold;
+      }
       #dot-container {
         display: flex;
         justify-content: center;
@@ -45,7 +48,7 @@
         border: 1px solid mediumslateblue;
       }
       #log-in-1 button {
-        font-weight: 300; 
+        font-weight: lighter;
         font-size: 1.5em;
         color: dimgray;
         height: 80px;
@@ -97,21 +100,21 @@
         width: 40px;
         margin: 3px;
       }
-      .color-svg {
-        fill: rgb(235, 235, 235);
+      #settings {
+        height: 100%;
+        width: calc(100% - 90px);
+        position: fixed;
       }
-      /*.container {
-        background: white;
-        box-shadow: 0px 0px 15px 3px lightgray;
-        border-radius: 10px;
-      }*/
       .settings-container {
-        height: 60px;
+        height: 80px;
         width: 90%;
         margin: auto;
         display: flex;
         align-items: center;
         justify-content: space-between;
+      }
+      .settings-container label {
+        font-weight: bold;
       }
       #new-accent-color{
         border: none;
@@ -150,28 +153,70 @@
         transition: .07s;
       }
       #dark-mode:checked + span {
-        background-color: var(--accent_color);
+        background-color: var(--accentColor);
       }
       #dark-mode:checked + span:before {
         transform: translateX(26px);
       }
+      .small-font-container {
+        display: flex;
+        flex-direction: row;
+      }
+      #font-container label {
+        font-weight: normal;
+      }
+      #font-container input {
+        -webkit-appearance: none;
+        height: 0px; 
+        width: 0px;
+        opacity: 0;
+      }
+      #font-container {
+        display: flex;
+        flex-direction: column;
+      }
+      #label-Sans-Serif {
+        font-family: sans-serif;
+      }
+      #label-Serif {
+        font-family: serif;
+      }
+      #label-Monospace {
+        font-family: monospace;
+      }
+      .colored-radio {
+        color: var(--accentColor);
+        font-family: sans-serif;
+      }
       #log-out {
-        height: 40px;
+        height: 45px;
         width: 150px;
-        color: red;
-        border: 1px solid red;
-        background: transparent;
-        border-radius: 20px;
-        font-sixe: 1em;
+        background: rgb(220, 0, 0);
+        border: none;
+        border-radius: 15px;
+        font-weight: bold;
+        font-size: 1em;
+        box-shadow: 0px 5px 0px 0px rgb(160, 0, 0);
+        color: white;
         position: absolute;
         bottom: 30px;
-        left: 50%;
+        left: 50vw;
         transform: translateX(-50%);
       }
       #log-out:hover {
-        border: none;
         background: red;
-        color: white;
+        box-shadow: 0px 5px 0px 0px rgb(200, 0, 0);
+      }
+      .logOutPress {
+        animation-name: logOutPressAnimation;
+        animation-duration: .2s;
+      }
+      @keyframes logOutPressAnimation {
+        0% {bottom: 30px; box-shadow: 0px 5px 0px 0px rgb(160, 0, 0);}
+        50% {bottom: 25px; box-shadow: none;}
+        100% {bottom: 30px; box-shadow: 0px 5px 0px 0px rgb(200, 0, 0);}
+      }
+      @media screen and (max-width: 1125px) {
       }
       #nav, #lists, #goals, #identity, #photos, #settings {
         display: none;
@@ -183,29 +228,26 @@
     <meta name="description" content="OSCEIN&ndash;Oscar Einvall's personal website. Unfortunately not open for any visitors at the moment."/>
     <meta name="keywords" content="OSCEIN, Oscar Einvall, personal, checklists, goals, identity, pictures"/>
     <meta name="author" content="Oscar Einvall">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;500;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;500;700&display=swap" rel="stylesheet">
   </head>
   <body id="body">
     <article id="log-in-1">
-      <p>Welcome, enter passcode</p>
+      <p id="log-in-p">Welcome, enter passcode</p>
       <div id="dot-container">
         <span id="dot0" class="dot"></span>
         <span id="dot1" class="dot"></span>
         <span id="dot2" class="dot"></span>
         <span id="dot3" class="dot"></span>
       </div>  
-      <button type="button" id="btn1" class="btn" ontouchstart="" onclick="fillDot(1)">1</button> 
-      <button type="button" id="btn2" class="btn" ontouchstart="" onclick="fillDot(2)">2</button> 
-      <button type="button" id="btn3" class="btn" ontouchstart="" onclick="fillDot(3)">3</button> 
-      <button type="button" id="btn4" class="btn" ontouchstart="" onclick="fillDot(4)">4</button> 
-      <button type="button" id="btn5" class="btn" ontouchstart="" onclick="fillDot(5)">5</button> 
-      <button type="button" id="btn6" class="btn" ontouchstart="" onclick="fillDot(6)">6</button> 
-      <button type="button" id="btn7" class="btn" ontouchstart="" onclick="fillDot(7)">7</button> 
-      <button type="button" id="btn8" class="btn" ontouchstart="" onclick="fillDot(8)">8</button> 
-      <button type="button" id="btn9" class="btn" ontouchstart="" onclick="fillDot(9)">9</button> 
-      <button type="button" id="btn0" class="btn" ontouchstart="" onclick="fillDot(0)">0</button> 
+      <button type="button" id="btn1" class="btn" onclick="fillDot(1)">1</button> 
+      <button type="button" id="btn2" class="btn" onclick="fillDot(2)">2</button> 
+      <button type="button" id="btn3" class="btn" onclick="fillDot(3)">3</button> 
+      <button type="button" id="btn4" class="btn" onclick="fillDot(4)">4</button> 
+      <button type="button" id="btn5" class="btn" onclick="fillDot(5)">5</button> 
+      <button type="button" id="btn6" class="btn" onclick="fillDot(6)">6</button> 
+      <button type="button" id="btn7" class="btn" onclick="fillDot(7)">7</button> 
+      <button type="button" id="btn8" class="btn" onclick="fillDot(8)">8</button> 
+      <button type="button" id="btn9" class="btn" onclick="fillDot(9)">9</button> 
+      <button type="button" id="btn0" class="btn" onclick="fillDot(0)">0</button> 
     </article>  
     <nav id="nav">
       <button type="button" id="nav-lists" onclick="listsBtn();"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 171 171" style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,171.99654v-171.99654h171.99654v171.99654z" fill="none"></path><g class="color-svg" id="color-svg-lists" fill="#7b68ee"><path d="M85.5,6.84c-43.37586,0 -78.66,35.28414 -78.66,78.66c0,43.37586 35.28414,78.66 78.66,78.66c43.37586,0 78.66,-35.28414 78.66,-78.66c0,-15.5952 -4.58184,-30.1325 -12.43758,-42.36926l-4.68246,5.53078c6.4809,10.78668 10.28004,23.36368 10.28004,36.83848c0,39.60018 -32.21982,71.82 -71.82,71.82c-39.60018,0 -71.82,-32.21982 -71.82,-71.82c0,-39.60018 32.21982,-71.82 71.82,-71.82c18.61506,0 35.54716,7.1812 48.32086,18.8434l4.47539,-5.28363c-13.9707,-12.6711 -32.49855,-20.39977 -52.79625,-20.39977zM147.86824,26.51836l-66.08215,77.97867l-27.81422,-25.94391l-4.66242,5.00309l33.05777,30.83344l70.72453,-83.44934z"></path></g></g></svg>Lists</button>
@@ -237,7 +279,7 @@
       <h1>Settings</h1>
       <div class="settings-container">
         <label for="new-accent-color">Change accent color</label>
-        <input type="color" id="new-accent-color" value="#7B68EE"/>
+        <input type="color" id="new-accent-color" value="#7B68EE" oninput="changeAccent(event);"/>
       </div>  
       <div class="settings-container">
         <label for="dark-mode">Toggle dark mode</label>
@@ -246,7 +288,24 @@
           <span id="dark-mode-slider"></span>
         </label>
       </div>
-      <button type="button" onclick="location.reload()" id="log-out">Log out</button>
+      <div class="settings-container">
+        <label>Change font</label>
+        <div id="font-container">
+          <div class="samll-font-container">
+            <input type="radio" name="font" id="Sans-Serif" value="Sans-Serif" onclick="updateFont(this.value);" checked="checked"/>
+            <label for="Sans-Serif" id="label-Sans-Serif"><span class="colored-radio">&#9673</span> Sans-Serif</label>
+          </div>
+          <div class="samll-font-container">
+            <input type="radio" name="font" id="Serif" value="Serif" onclick="updateFont(this.value);"/>
+            <label for="Serif" id="label-Serif"><span class="colored-radio">&#9678</span> Serif</label>
+          </div>
+          <div class="samll-font-container">  
+            <input type="radio" name="font" id="Monospace" value="Monospace" onclick="updateFont(this.value);"/>
+            <label for="Monospace" id="label-Monospace"><span class="colored-radio">&#9678</span> Monospace</label>
+          </div>
+        </div>
+      </div>  
+      <button type="button" id="log-out" onclick="logOut()">LOG OUT</button>
     </article>  
     <script>
       var numOfDots = -1
@@ -402,9 +461,9 @@
         document.getElementById("nav-photos").style.borderRadius = "0px 0px 0px 60%";
         document.getElementById("nav-extra").style.boxShadow = "none";
       }
-      id("new-accent-color").oninput = function(event) {
+      function changeAccent(event) {
         accentColor = event.target.value;
-        sp("--accent_color", event.target.value);
+        sp("--accentColor", event.target.value);
         settingsBtn();
       }
       function toggleDarkMode() {
@@ -413,18 +472,27 @@
             backgroundColor = "black";
             id("body").style.background = backgroundColor; 
             id("body").style.color = "white";
-            id("log-out").onmouseover = function() {this.style.color = "black"}
-            id("log-out").onmouseleave = function() {this.style.color = "red"}
             settingsBtn();
             break;
           default: 
             backgroundColor = "rgb(252, 252, 252)";
             id("body").style.backgroundColor = backgroundColor;
             id("body").style.color = "black";
-            id("log-out").onmouseover = function() {this.style.color = "white"}
-            id("log-out").onmouseleave = function() {this.style.color = "red"}
             settingsBtn();
         }
+      }
+      function updateFont(font) {
+        sp("--font", font);
+        id("label-Sans-Serif").innerHTML = "<span class='colored-radio'>&#9678</span> Sans-Serif";
+        id("label-Serif").innerHTML = "<span class='colored-radio'>&#9678</span> Serif";
+        id("label-Monospace").innerHTML = "<span class='colored-radio'>&#9678</span> Monospace";
+        id("label-" + font).innerHTML = "<span class='colored-radio'>&#9673 </span>" + font;
+        
+      }
+      function logOut() {
+        location.reload();
+        qs('#log-out').classList.add('logOutPress');
+        setTimeout(function(){qs('#log-out').classList.remove('logOutPress');}, 200);
       }
     </script>
   </body>  
